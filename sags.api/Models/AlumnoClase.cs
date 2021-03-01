@@ -12,5 +12,9 @@ namespace sags.api.Models
         public Guid IPeriodo {get;set;}
         public Periodo Periodo {get;set;}
         public double Calificacion {get;set;}
+        public double PrimerParcial {get;set;}
+        public double SegundoParcial {get;set;}
+        public double TercerPacrial {get;set;}
+
     }
 }

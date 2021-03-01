@@ -24,7 +24,7 @@ namespace sags_api.Controllers
 
         [HttpGet]
         public async Task<IEnumerable<Grupo>> ListarGrupos([FromQuery] Paginacion paginacion){
-            var queryableGrupos = _context.Grupos.AsQueryable();
+            var queryableGrupos = _context.Grupos.Where(g => !g.Borrado).AsQueryable();
             await HttpContext.AplicarPaginacion(queryableGrupos,paginacion.CantidadAMostrar);
             return await queryableGrupos.Paginar(paginacion).ToListAsync();
         }
@@ -58,6 +58,19 @@ namespace sags_api.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent(); 
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DesactivarGrupo(int id){
+            try{
+                var grupo = await _context.Grupos.FindAsync(id);
+                if(grupo == null) return NotFound();
+
+                grupo.Borrado = true;
+                return NoContent();
+            }catch(Exception e){
+                return BadRequest(e);
+            }
         }
 
     }

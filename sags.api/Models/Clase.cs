@@ -15,9 +15,6 @@ namespace sags.api.Models
         public Grupo Grupo {get;set;}
         public Guid IdPeriodo {get;set;}
         public Periodo Periodo {get;set;}
-        public double PrimerParcial {get;set;}
-        public double SegundoParcial {get;set;}
-        public double TercerPacrial {get;set;}
 
         
         public ICollection<Alumno> Alumnos {get;set;}

@@ -11,7 +11,7 @@ const App = () => {
             <DefaulyLayout>
                 <Switch>
                     <Route path="/periodos" component={PeridosIndex}></Route>
-                    {/* <Route path="/materias" component={}></Route> */}
+                    <Route path="/materias" component={}></Route>
                     {/* <Route path="/carreras" component={}></Route>
                     <Route path="/maestros" component={}></Route>
                     <Route path="/alumnos" component={}></Route>
